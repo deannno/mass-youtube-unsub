@@ -32,9 +32,6 @@ def main():
     )
     subscriptions_dict = request.execute()
     
-    with open("sample.json", "w") as outfile:  
-        json.dump(subscriptions_dict, outfile) 
-
     # keep on doing this while there are still pages we're subscribed to
     while subscriptions_dict['pageInfo']['totalResults'] - subscriptions_dict['pageInfo']["resultsPerPage"] > -subscriptions_dict['pageInfo']["resultsPerPage"]:
         
